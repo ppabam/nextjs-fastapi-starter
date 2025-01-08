@@ -32,8 +32,7 @@ else:
 
     return {
             "birthday": birthday,
-            "age": str(age),
-            "만나이": str(ex_president_age)
+            "age": str(ex_president_age),
             "basedate": str(today),
             "message": "Age calculated successfully!"
             }
