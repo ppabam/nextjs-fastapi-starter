@@ -25,7 +25,7 @@ def age_calculator(birthday: str) -> Dict[str, str]:
     # TODO 생일 지난 여부 관련 로직 추가 개발 필요 
     if int(today.month) < int(birth_date.month): 
         age = age-1
-    elif (today.month == birth_date.month & int(today.day) < int(birth_date.day)): 
+    elif (today.month == birth_date.month and int(today.day) < int(birth_date.day)): 
         age = age-1
 
     return {
