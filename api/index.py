@@ -27,6 +27,8 @@ def age_calculator(birthday: str) -> Dict[str, str]:
         ex_president_age = age-1
     if (today.month == birth_date.month & int(today.day) < int(birth_date.day)): 
         ex_president_age = age-1
+    if (today.month == birth_date.month & int(today.day) >= int(birth_date.day)): 
+        ex_president_age = age
     else:
         ex_president_age = age
 
