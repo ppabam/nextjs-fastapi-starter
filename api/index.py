@@ -49,7 +49,7 @@ zodiac_animals = [
     
     return {
             "birthday": birthday,
-            "age": str(age and zodiac),
+            "age": str(f"나이는 {age}살이고, 띠는 {zodiac}입니다."),
             "basedate": str(today),
             "message": "Age calculated successfully!"
             }
