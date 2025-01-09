@@ -28,12 +28,6 @@ def age_calculator(birthday: str) -> Dict[str, str]:
     elif (today.month == birth_date.month and int(today.day) < int(birth_date.day)): 
         age = age-1
 
-    return {
-            "birthday": birthday,
-            "age": str(age),
-            "basedate": str(today),
-            "message": "Age calculated successfully!"
-            }
 zodiac_animals = [
     "🐀 Rat",      # 자 - 쥐
     "🐂 Ox",       # 축 - 소
@@ -49,6 +43,15 @@ zodiac_animals = [
     "🐖 Pig"       # 해 - 돼지
 ]
 
-def zodiac(birth_year):
-  return zodiac_animals[birth_year % 12]
+    def zodiac(birth_year):
+      return zodiac_animals[birth_year % 12]
+
+    
+    return {
+            "birthday": birthday,
+            "age": str(age and zodiac),
+            "basedate": str(today),
+            "message": "Age calculated successfully!"
+            }
+
 
