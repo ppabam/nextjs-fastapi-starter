@@ -45,14 +45,18 @@ zodiac_animals = [
 
 def zodiac(birth.year):
     return zodiac_animals[birth.year % 12]
-
     
     return {
             "birthday": birthday,
-            ####"age": str(age),
-            "age": f"나이는 {age}살이고, 띠는 {zodiac(birth.year)}입니다.",
+            "age": str(age),
+            "zodiac": zodiac(birth.year)
             "basedate": str(today),
             "message": "Age calculated successfully!"
             }
+
+
+
+
+    
 
 
