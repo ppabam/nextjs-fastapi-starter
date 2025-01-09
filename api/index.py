@@ -23,7 +23,10 @@ def age_calculator(birthday: str) -> Dict[str, str]:
 
     # 계산
     age = today.year - birth_date.year
-    # TODO 생일 지난 여부 관련 로직 추가 개발 필요 
+    is_pre_birthday = today < birth_date.replace(year=today.year)
+    if is_pre_birthday:
+        age = age - 1
+
     return {
             "birthday": birthday,
             "age": str(age),
