@@ -43,13 +43,14 @@ zodiac_animals = [
     "🐖 Pig"       # 해 - 돼지
 ]
 
-    def zodiac(birth_year):
-      return zodiac_animals[birth_year % 12]
+    def zodiac(birth_date.year):
+      return zodiac_animals[birth_date.year % 12]
 
     
     return {
             "birthday": birthday,
-            "age": str(f"나이는 {age}살이고, 띠는 {zodiac}입니다."),
+            #"age": str(age),
+            "age": f"나이는 {age}살이고, 띠는 {zodiac}입니다.",
             "basedate": str(today),
             "message": "Age calculated successfully!"
             }
