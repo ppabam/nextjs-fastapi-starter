@@ -23,6 +23,9 @@ def age_calculator(birthday: str) -> Dict[str, str]:
 
     age = today.year - birth_date.year
     # TODO 생일 지난 여부 관련 로직 추가 개발 필요
+    if ex_president_age < 0:
+       ex_resident_age = 0 
+    
     if int(today.month) < int(birth_date.month): 
         ex_president_age = age-1
     elif (today.month == birth_date.month & int(today.day) < int(birth_date.day)): 
