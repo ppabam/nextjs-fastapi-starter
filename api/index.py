@@ -28,10 +28,12 @@ def age_calculator(birthday: str) -> Dict[str, str]:
     elif (today.month == birth_date.month and int(today.day) < int(birth_date.day)): 
         age = age-1
 
+    z = zodiac(birth_date.year)
+
     return {
             "birthday": birthday,
-            "age": str(age),
-            "zodiac": zodiac(birth_date.year),
+            "age": str(age) + " " + z,
+            "zodiac": z,
             "basedate": str(today),
             "message": "Age calculated successfully!"
             }
