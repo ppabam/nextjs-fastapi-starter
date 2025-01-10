@@ -4,5 +4,14 @@
 ### Use
 - https://ac.sunsin.shop
 
+### Dev
+```bash
+$ pyenv global
+3.10.12
+# $ python -m venv venv
+$ source venv/bin/activate
+$ uvicorn api.index:app --reload
+```
+
 ### Ref
 - https://docs.python.org/ko/3.10/library/datetime.html

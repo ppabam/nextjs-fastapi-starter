@@ -21,7 +21,7 @@ def age_calculator(birthday: str) -> Dict[str, str]:
     today = date.today()
     birth_date = datetime.strptime(birthday, "%Y-%m-%d").date()
 
-    # 만나이
+    # 만나이계산
     age = today.year - birth_date.year
     is_pre_birthday = today < birth_date.replace(year=today.year)
     if is_pre_birthday:
@@ -42,7 +42,7 @@ def age_calculator(birthday: str) -> Dict[str, str]:
     "🐕 Dog",      # 술 - 개
     "🐖 Pig"       # 해 - 돼지
     ]
-    zodiac = zodiac_animals[birth_date.year % 12]
+    zodiac = zodiac_animals[birth_date.year % 12 - 4]
     return {
             "birthday": birthday,
             "age": str(age),
