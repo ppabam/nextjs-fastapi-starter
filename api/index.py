@@ -43,10 +43,35 @@ def age_calculator(birthday: str) -> Dict[str, str]:
     "🐖 Pig"       # 해 - 돼지
     ]
     zodiac = zodiac_animals[birth_date.year % 12 - 4]
+    os_name = get_os_pretty_name()
     return {
             "birthday": birthday,
             "age": str(age),
             "basedate": str(today),
             "zodiac": zodiac,
-            "message": "Age calculated successfully!"
+            "os-name": os_name,
+            "message": "Age calculated successfully!",
             }
+
+def get_os_pretty_name() -> str:
+    with open('/etc/os-release', 'r') as file:
+        for line in file:
+            if line.startswith('PRETTY_NAME'):
+                # PRETTY_NAME=\"Ubuntu 24.04.1 LTS\"\n
+                return line.split('=')[1]
+    return None
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
