@@ -64,17 +64,3 @@ def get_os_pretty_name() -> str:
                 return line.split('=')[1].replace('\n','').strip("\"")
     return None
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
