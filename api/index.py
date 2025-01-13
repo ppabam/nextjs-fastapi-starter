@@ -58,7 +58,10 @@ def get_os_pretty_name() -> str:
         for line in file:
             if line.startswith('PRETTY_NAME'):
                 # PRETTY_NAME=\"Ubuntu 24.04.1 LTS\"\n
-                return line.split('=')[1]
+                # \"Ubuntu 24.04.1 LTS\"\n
+                # \"Ubuntu 24.04.1 LTS\"
+                # Ubuntu 24.04.1 LTS
+                return line.split('=')[1].replace('\n','').strip("\"")
     return None
 
 
