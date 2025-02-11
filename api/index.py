@@ -1,7 +1,10 @@
 from fastapi import FastAPI
 from datetime import datetime, date
 from typing import Dict
-import random
+from dotenv import load_dotenv
+import psycopg
+from psycopg.rows import dict_row
+import os
 
 ### Create FastAPI instance with custom docs and openapi url
 app = FastAPI(docs_url="/api/py/docs", openapi_url="/api/py/openapi.json")
@@ -64,15 +67,28 @@ def get_os_pretty_name() -> str:
                 return line.split('=')[1].replace('\n','').strip("\"")
     return None
 
+load_dotenv()
+DB_CONFIG = {
+    "user": os.getenv("DB_USERNAME"),
+    "dbname": os.getenv("DB_NAME"),
+    "password": os.getenv("DB_PASSWORD"),
+    "host": os.getenv("DB_HOST"),
+    "port": os.getenv("DB_PORT")
+}
+    
 @app.get("/api/py/select_all")
 def select_all():
-    import pandas as pd
-    # Next -> DB 에서 읽어와서 DataFrame 으로 변환 후 아래와 같은 형식으로 리턴
-    import json
-    json_data = '''[
-        {"id": 1, "name": "Kim"},
-        {"id": 2, "name": "Lee"}
-    ]'''
-    data = json.loads(json_data)
-    df = pd.DataFrame(data)
-    return df.to_dict(orient="records")
+    query = """
+    SELECT
+        l.menu_name,
+        m.name,
+        l.dt
+    FROM
+        lunch_menu l
+        inner join member m
+        on l.member_id = m.id
+    """
+    with psycopg.connect(**DB_CONFIG, row_factory=dict_row) as conn:
+        cur = conn.execute(query)
+        rows = cur.fetchall()
+        return rows
