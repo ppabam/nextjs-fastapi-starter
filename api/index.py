@@ -67,9 +67,6 @@ def get_os_pretty_name() -> str:
 @app.get("/api/py/select_all")
 def select_all():
     import pandas as pd
-    # pandas dataframe 임의로 하나 만들어서 10분 가이드 초입
-    # 임으로 만든 dataframe 을 아래와 같은 형식으로 리턴
-    # dt.to_dict()
     # Next -> DB 에서 읽어와서 DataFrame 으로 변환 후 아래와 같은 형식으로 리턴
     import json
     json_data = '''[
