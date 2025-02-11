@@ -83,5 +83,8 @@ def select_all():
     with psycopg.connect(**DB_CONFIG, row_factory=dict_row) as conn:
         cur = conn.execute("SELECT * FROM view_select_all")
         rows = cur.fetchall()
-        # JSONResponse를 사용하여 UTF-8 명시적으로 설정
-        return JSONResponse(content=rows, media_type="application/json; charset=utf-8")
+        for row in rows:
+            for key, value in row.items():
+                if isinstance(value, date):
+                    row[key] = value.strftime('%Y-%m-%d')
+        return JSONResponse(content=rows, headers={"Content-Type": "application/json; charset=utf-8"})
