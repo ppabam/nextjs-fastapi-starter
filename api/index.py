@@ -67,7 +67,7 @@ def get_os_pretty_name() -> str:
                 return line.split('=')[1].replace('\n','').strip("\"")
     return None
 
-load_dotenv()
+# load_dotenv()
 DB_CONFIG = {
     "user": os.getenv("POSTGRES_USER"),
     "dbname": os.getenv("POSTGRES_DATABASE"),
