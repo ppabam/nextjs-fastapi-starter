@@ -5,6 +5,7 @@ from dotenv import load_dotenv
 import psycopg
 from psycopg.rows import dict_row
 import os
+from fastapi.responses import JSONResponse
 
 ### Create FastAPI instance with custom docs and openapi url
 app = FastAPI(docs_url="/api/py/docs", openapi_url="/api/py/openapi.json")
@@ -82,4 +83,5 @@ def select_all():
     with psycopg.connect(**DB_CONFIG, row_factory=dict_row) as conn:
         cur = conn.execute("SELECT * FROM view_select_all")
         rows = cur.fetchall()
-        return rows
+        # JSONResponse를 사용하여 UTF-8 명시적으로 설정
+        return JSONResponse(content=rows, media_type="application/json; charset=utf-8")
