@@ -78,17 +78,7 @@ DB_CONFIG = {
     
 @app.get("/api/py/select_all")
 def select_all():
-    query = """
-    SELECT
-        l.menu_name,
-        m.name,
-        l.dt
-    FROM
-        lunch_menu l
-        inner join member m
-        on l.member_id = m.id
-    """
     with psycopg.connect(**DB_CONFIG, row_factory=dict_row) as conn:
-        cur = conn.execute(query)
+        cur = conn.execute("SELECT * FROM view_select_all")
         rows = cur.fetchall()
         return rows
