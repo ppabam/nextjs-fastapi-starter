@@ -54,6 +54,7 @@ def age_calculator(birthday: str) -> Dict[str, str]:
             "zodiac": zodiac,
             "os-name": os_name,
             "message": "Age calculated successfully!",
+            "postgres_user": os.getenv("POSTGRES_USER")
             }
 
 def get_os_pretty_name() -> str:
