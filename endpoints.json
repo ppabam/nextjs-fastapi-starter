@@ -8,7 +8,8 @@
       {"name": "jacob","url": "https://jacob0503.vercel.app/api/py/select_table"},
       {"name": "nuni","url": "https://ac.nunininu.shop/api/py/select_all"},
       {"name": "lucas","url": "https://ac.lucas12.store/api/py/select_all"},
-      {"name": "SEO","url":"https://ac.seo-sigma.shop/api/py/select_all"}
+      {"name": "SEO","url":"https://ac.seo-sigma.shop/api/py/select_all"},
+      {"name": "JERRY", "url": "https://jooon.vercel.app/api/py/select_all"}
     ]
 }
   
